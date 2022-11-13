@@ -1,0 +1,16 @@
+{
+  "name": "twitter-periodic-cleanup",
+  "version": "1.0.0",
+  "description": "Purges tweets older than (customisable) x days old",
+  "main": "delete-old-tweets.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zigotica/twitter-periodic-cleanup"
+  },
+  "author": "Sergi Meseguer <zigotica@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "twitter-api-sdk": "^1.2.1",
+    "twitter-api-v2": "^1.12.9"
+  }
+}
