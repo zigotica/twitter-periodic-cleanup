@@ -2,7 +2,9 @@
   "name": "twitter-periodic-cleanup",
   "version": "1.0.0",
   "description": "Purges tweets older than (customisable) x days old",
-  "main": "delete-old-tweets.mjs",
+  "scripts": {
+    "start": "node delete-old-tweets.mjs 2"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:zigotica/twitter-periodic-cleanup"

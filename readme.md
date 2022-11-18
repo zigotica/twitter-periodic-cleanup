@@ -60,12 +60,17 @@ We now simply have run the node script, passing the number of days you want your
 $ node delete-old-tweets.mjs 10
 ```
 
+## Automate the execution
+
+I used Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 4:30 and remove tweets older than 2 days. To modify these values, please have a look at the yaml file for the cron times and the package.json script value for the number of days.
+
+
 ## To Do
 
 * [x] PoC
-* [ ] Automate it using github actions
-* [ ] Documentation
+* [x] Automate it using github actions
+* [x] Documentation
   * [x] Basic use
-  * [ ] Automation
+  * [x] Automation
 
 
