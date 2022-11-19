@@ -2,7 +2,7 @@
 
 ## What
 
-A node script that purges tweets older than (customisable) x days old. 
+A node script that purges tweets and likes older than (customisable) x days old. 
 
 ## Why
 
