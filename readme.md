@@ -51,7 +51,7 @@ With the result, you will also now export the user-id as an env variable, replac
 export TWITTER_USER_ID=""
 ```
 
-## Use the cleanup script
+## Use the cleanup script manually
 
 We now simply have run the node script, passing the number of days you want your tweets to be alive. For instance, passing 10 will remove all tweets older than 10 days.
 
@@ -62,7 +62,9 @@ $ node delete-old-tweets.mjs 10
 
 ## Automate the execution
 
-I used Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 4:30 and remove tweets older than 2 days. To modify these values, please have a look at the yaml file for the cron times and the package.json script value for the number of days.
+I modified Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 11:15 and remove tweets older than 2 days. To modify these values, please have a look at the `.github/workflows/schedule.yaml` file and the `package.json` script value for the number of days.
+
+You will have to add the 6 previous secrets to your repository, under Settings/Secrets. These will be read from the `schedule.yaml` file while running the scheduled job.
 
 
 ## To Do
