@@ -60,9 +60,18 @@ We now simply have run the node script, passing the number of days you want your
 $ node delete-old-tweets.mjs 10
 ```
 
+## Run unlike script manually
+
+I also created an unlike script. Same use, same number of days option.
+
+```
+$ node unlike.mjs 10
+```
+
+
 ## Automate the execution
 
-I modified Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 11:15 and remove tweets older than 2 days. To modify these values, please have a look at the `.github/workflows/schedule.yaml` file and the `package.json` script value for the number of days.
+I modified Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 11:15 and remove tweets/likes older than 2 days. To modify these values, please have a look at the `.github/workflows/schedule.yaml` file and the `package.json` script value for the number of days. Please note that the `start` script rins both delete and unlike methods by default. Edit to you liking.
 
 You will have to add the 6 previous secrets to your repository, under Settings/Secrets. These will be read from the `schedule.yaml` file while running the scheduled job.
 
@@ -70,7 +79,9 @@ You will have to add the 6 previous secrets to your repository, under Settings/S
 ## To Do
 
 * [x] PoC
-* [x] Automate it using github actions
+* [x] Delete tweets
+* [x] Unlike tweets
+* [x] Automate using github actions
 * [x] Documentation
   * [x] Basic use
   * [x] Automation
