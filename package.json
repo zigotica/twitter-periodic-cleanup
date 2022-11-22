@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Purges tweets&likes older than (customisable) x days old",
   "scripts": {
-    "start": "node delete-old-tweets.mjs 2 && node unlike.mjs 2"
+    "start": "node delete-old-tweets.mjs 2 '#z' && node unlike.mjs 2"
   },
   "repository": {
     "type": "git",

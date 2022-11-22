@@ -60,6 +60,18 @@ We now simply have run the node script, passing the number of days you want your
 $ node delete-old-tweets.mjs 10
 ```
 
+### Keep tweets that end with a string
+
+You can pass an optional last string argument. It will be tested as a string matching the last characters of a tweet. For instance:
+
+
+```
+$ node delete-old-tweets.mjs 10 "#z"
+```
+
+Will remove all tweets older than 10 days, except those ending EXACTLY in `#z`, that will be kept.
+
+
 ## Run unlike script manually
 
 I also created an unlike script. Same use, same number of days option.
@@ -82,6 +94,8 @@ You will have to add the 6 previous secrets to your repository, under Settings/S
 * [x] Delete tweets
 * [x] Unlike tweets
 * [x] Automate using github actions
+* [x] Keep tweets that end with a string
+* [ ] Pagination
 * [x] Documentation
   * [x] Basic use
   * [x] Automation

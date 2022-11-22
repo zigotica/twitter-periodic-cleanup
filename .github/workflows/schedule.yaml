@@ -2,8 +2,8 @@ name: Run Actions with a Schedule
 on:
   schedule:
     # Use https://crontab.guru to find the syntax for your desired schedule
-    # By default, run daily at 11:15
-    - cron: 15 11 * * *
+    # By default, run daily at 04:30
+    - cron: 30 4 * * *
   workflow_dispatch:
     # This allows you to run the action manually
 jobs:

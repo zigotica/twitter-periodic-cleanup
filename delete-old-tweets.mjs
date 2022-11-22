@@ -13,6 +13,7 @@ const client = new Client(bearerToken);
 
 const ARGS = process.argv.slice(2);
 const DAYS = ARGS[0];
+const ENDS = ARGS[1];
 
 const getPastDate = (offset) => {
   return new Date(new Date().setDate(new Date().getDate() - offset));
@@ -34,7 +35,9 @@ const safeDays = getPastDate(DAYS);
     usersTweets['data'].forEach((tweet) => {
       const isSafe = new Date(tweet.created_at) > safeDays;
       if(!isSafe) {
-        twitterClient.v2.deleteTweet(tweet.id);
+        if (!ENDS || (ENDS && !tweet.text.endsWith(ENDS))) {
+          twitterClient.v2.deleteTweet(tweet.id);
+        }
       }
     });
   } catch (error) {
