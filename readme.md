@@ -66,10 +66,10 @@ You can pass an optional last string argument. It will be tested as a string mat
 
 
 ```
-$ node delete-old-tweets.mjs 10 "#z"
+$ node delete-old-tweets.mjs 10 "#k"
 ```
 
-Will remove all tweets older than 10 days, except those ending EXACTLY in `#z`, that will be kept.
+Will remove all tweets older than 10 days, except those ending EXACTLY in `#k`, that will be kept.
 
 
 ## Run unlike script manually
