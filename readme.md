@@ -8,8 +8,15 @@ A node script that purges tweets and likes older than (customisable) x days old.
 
 First step before definitely leaving twitter, if that psycopath doesn't sink it, which is also an option. 
 
-## Dependencies
+## Disclaimer
 
+Use at your own risk. The worst case scenario is you delete all your tweets, but that's actually what you are here for… I recommend using the script commenting the following line before setting up the github actions:
+
+```
+twitterClient.v2.deleteTweet(tweet.id);
+```
+
+## Dependencies
 
 ```
 $ npm install
@@ -17,7 +24,9 @@ $ npm install
 
 The script needs a [Twitter Developer Account](https://developer.twitter.com). You will have to create a Project with an App using the v2, and give it Read+Write access.
 
-I also used [this repo](https://github.com/koenrh/delete-tweets) to do a first batch remove of tweets. That repo requires you to get twitter to send you a zip with all your data. 
+First step in my case was to use the Twitter Backup request, and get a link to download a zip with all my data. Initially, I used [this repo](https://github.com/koenrh/delete-tweets) to batch remove of tweets.
+
+The current `delete-old-tweets.mjs` script allows to paginate results, and keep calling the endpoint to get more tweets, so you can use it without the data downloaded from Twitter. But having a backup with your data is probably still recommended, even if just for sentimental reasons.
 
 ## Setup
 
@@ -30,7 +39,6 @@ export TWITTER_CONSUMER_KEY=""
 export TWITTER_CONSUMER_SECRET=""
 export TWITTER_ACCESS_TOKEN=""
 export TWITTER_ACCESS_TOKEN_SECRET=""
-export TWITTER_BEARER_TOKEN=""
 ```
 
 Replace the empty strings by the generated tokens in the Developer Account website. 
@@ -80,12 +88,11 @@ I also created an unlike script. Same use, same number of days option.
 $ node unlike.mjs 10
 ```
 
-
 ## Automate the execution
 
-I modified Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 11:15 and remove tweets/likes older than 2 days. To modify these values, please have a look at the `.github/workflows/schedule.yaml` file and the `package.json` script value for the number of days. Please note that the `start` script rins both delete and unlike methods by default. Edit to you liking.
+I modified Ale's [excellent template](https://github.com/bomberstudios/run-node-with-github-actions) to schedule a node script using github actions. It is set to run every day at 04:30 and remove tweets/likes older than 2 days. To modify these values, please have a look at the `.github/workflows/schedule.yaml` file and the `package.json` script value for the number of days. Please note that the `start` script rins both delete and unlike methods by default. Edit to you liking.
 
-You will have to add the 6 previous secrets to your repository, under Settings/Secrets. These will be read from the `schedule.yaml` file while running the scheduled job.
+You will have to add the 5 previous secrets to your repository, under Settings/Secrets. These will be read from the `schedule.yaml` file while running the scheduled job.
 
 
 ## To Do
@@ -95,7 +102,7 @@ You will have to add the 6 previous secrets to your repository, under Settings/S
 * [x] Unlike tweets
 * [x] Automate using github actions
 * [x] Keep tweets that end with a string
-* [ ] Pagination
+* [x] Pagination (until rate limit reached)
 * [x] Documentation
   * [x] Basic use
   * [x] Automation

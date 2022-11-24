@@ -12,7 +12,6 @@
   "author": "Sergi Meseguer <zigotica@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "twitter-api-sdk": "^1.2.1",
     "twitter-api-v2": "^1.12.9"
   }
 }
