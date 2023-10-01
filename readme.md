@@ -1,5 +1,9 @@
 # Twitter periodic cleanup
 
+## Important notice
+
+Twitter started to significantly reduce its API capabilities as of April 2023. This change has major implications, spacially as the main dependency used here ([twitter-api-v2](https://github.com/PLhery/node-twitter-api-v2)) is severely affected. As a result, **this library is no longer maintained and the repository will be archived** (kept just for your reading pleasure). 
+
 ## What
 
 A node script that purges tweets and likes older than (customisable) x days old. 
